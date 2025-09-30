@@ -17,7 +17,7 @@ Este projeto é uma aplicação web completa desenvolvida como trabalho de curso
 - **Framework**: Laravel 12
 - **Comunicação com API**: Cliente HTTP do Laravel
 - **Serviço de IA**: Hugging Face (API de Chat Completions)
-- **Modelo de IA**: meta-llama/Meta-Llama-3-8B-Instruct (ou outro compatível)
+- **Modelo de IA**: deepseek-ai/DeepSeek-V3.1-Terminus (ou outro compatível)
 
 ### Front-end
 - **Estrutura**: HTML5
