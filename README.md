@@ -1,61 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🍳 MyAI Recipes - Gerador de Receitas com IA
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é uma aplicação web completa desenvolvida como trabalho de curso, que consiste em um back-end robusto em Laravel e um front-end reativo e minimalista. A aplicação permite ao usuário gerenciar uma lista de ingredientes e utilizar a inteligência artificial da Hugging Face para gerar receitas criativas com base nos itens selecionados.
 
-## About Laravel
+## ✨ Funcionalidades
+- **CRUD Completo de Ingredientes**: Crie, Leia, Atualize e Delete ingredientes de forma fácil e rápida.
+- **Integração com IA**: Conexão direta com a API da Hugging Face para geração de texto.
+- **Gerador de Receitas**: Selecione os ingredientes que você tem em casa e a IA criará uma receita detalhada para você.
+- **Interface Moderna**: Front-end simples, bonito e reativo construído com Vue.js e Tailwind CSS.
+- **Modo Escuro**: Alterne entre os temas claro e escuro para uma melhor experiência visual.
+- **Edição em Modal**: Edite ingredientes de forma intuitiva sem sair da página.
+- **Simplicidade**: O front-end é um único arquivo index.html, sem necessidade de npm ou processos de build.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Tecnologias Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Back-end
+- **Framework**: Laravel 12
+- **Comunicação com API**: Cliente HTTP do Laravel
+- **Serviço de IA**: Hugging Face (API de Chat Completions)
+- **Modelo de IA**: meta-llama/Meta-Llama-3-8B-Instruct (ou outro compatível)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Front-end
+- **Estrutura**: HTML5
+- **Estilo**: Tailwind CSS (via CDN)
+- **Reatividade e Lógica**: Vue.js 3 (via CDN)
+- **Requisições HTTP**: Axios (via CDN)
+- **Fontes**: Google Fonts (Inter)
 
-## Learning Laravel
+## 🚀 Configuração e Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Siga os passos abaixo para rodar o projeto em sua máquina local.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Pré-requisitos
+- PHP >= 8.2
+- Composer
+- Um banco de dados (ex: MySQL, MariaDB)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Configurando o Back-end (Laravel)
 
-## Laravel Sponsors
+```bash
+# 1. Clone este repositório (ou use a sua pasta de projeto)
+git clone https://github.com/naicolas-br/api-receitas.git
+cd seu-repositorio
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# 2. Instale as dependências do PHP
+composer install
 
-### Premium Partners
+# 3. Crie o arquivo de ambiente
+cp .env.example .env
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# 4. Gere a chave da aplicação
+php artisan key:generate
 
-## Contributing
+# 5. Configure o arquivo .env com suas credenciais:
+#    - Conexão com o banco de dados (DB_HOST, DB_PORT, DB_DATABASE, etc.)
+#    - Sua chave de API da Hugging Face:
+HUGGINGFACE_API_KEY=hf_sua_chave_aqui
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 6. Execute as migrações para criar as tabelas no banco de dados
+php artisan migrate
 
-## Code of Conduct
+# 7. Inicie o servidor do Laravel
+php artisan serve
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+O back-end estará rodando em `http://127.0.0.1:8000`.
 
-## Security Vulnerabilities
+### 2. Configurando o Front-end
+O front-end foi projetado para ser o mais simples possível.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Configurar CORS**: No projeto Laravel, certifique-se de que o arquivo `config/cors.php` existe e que a configuração `allowed_origins` permite o acesso. Para desenvolvimento local, a forma mais fácil é:
 
-## License
+```php
+// Em config/cors.php
+'allowed_origins' => ['*'],
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Se o arquivo não existir, siga os passos que fizemos para criá-lo manualmente.
+
+**Abrir o Front-end**:
+Simplesmente abra o arquivo `index.html` em qualquer navegador moderno (Chrome, Firefox, Edge). Não é necessário nenhum servidor ou instalação.
+
+## 📖 Como Usar
+1. **Adicione Ingredientes**: Na seção "Meus Ingredientes", digite o nome e a descrição de um alimento e clique em "Adicionar".
+2. **Gerencie a Lista**: Você pode editar ou excluir ingredientes a qualquer momento.
+3. **Selecione para a Receita**: Na seção "Gerador de Receitas", marque os checkboxes dos ingredientes que você deseja usar.
+4. **Gere a Receita**: Clique no botão "Gerar Receita Agora!". O sistema enviará os ingredientes para a IA e exibirá a receita sugerida logo abaixo.
+5. **Alterne o Tema**: Use o botão de sol/lua no topo da página para alternar entre os modos claro e escuro.
